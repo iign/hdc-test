@@ -1,0 +1,76 @@
+{
+  "version": 1,
+  "settings": {
+    "layout": {
+      "contentSize": "1120px",
+      "wideSize": "1440px"
+    },
+    "color": {
+      "palette": [
+        {
+          "name": "Blue",
+          "slug": "blue",
+          "color": "#00ACC8"
+        },
+        {
+          "name": "Blue Dark",
+          "slug": "blue-dark",
+          "color": "#008095"
+        },
+        {
+          "name": "Blue Light",
+          "slug": "blue-light",
+          "color": "#66CCDD"
+        },
+        {
+          "name": "Neutral-100",
+          "slug": "neutral-100",
+          "color": "#FAFAFA"
+        },
+        {
+          "name": "Neutral-200",
+          "slug": "neutral-200",
+          "color": "#EEEEEE"
+        },
+        {
+          "name": "Neutral-500",
+          "slug": "neutral-500",
+          "color": "#454849"
+        },
+        {
+          "name": "Neutral-900",
+          "slug": "neutral-900",
+          "color": "#1F1F1F"
+        },
+        {
+          "name": "Neutral-950",
+          "slug": "neutral-950",
+          "color": "#151515"
+        },
+        {
+          "name": "Lime",
+          "slug": "lime",
+          "color": "#C9E500"
+        }
+      ]
+    },
+    "typography": {
+      "fontFamilies": {
+        "serif": ["Newsreader", "serif"],
+        "sans": ["Inter", "sans-serif"]
+      },
+      "fontSizes": [
+        {
+          "slug": "4xl",
+          "name": "XL",
+          "size": ["2.25rem", "1.4"]
+        },
+        {
+          "slug": "6xl",
+          "name": "XL",
+          "size": ["3.75rem", "1.5"]
+        }
+      ]
+    }
+  }
+}

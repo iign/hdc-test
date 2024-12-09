@@ -1,0 +1,42 @@
+debug.log
+uploads/
+!uploads/.gitkeep
+
+# Ignore temporary or backup files
+*.tmp
+*.temp
+*.bak
+*.backup
+*.swp
+*.swo
+*.DS_Store
+Thumbs.db
+ehthumbs.db
+
+# Ignore cache directories
+cache/
+wflogs/
+
+
+debug.log
+error_log
+
+*.log
+*.sql
+*.sql.gz
+node_modules/
+vendor/
+
+# Ignore unnecessary files in themes and plugins
+themes/*/node_modules/
+themes/*/dist/
+themes/*/vendor/
+plugins/*/node_modules/
+plugins/*/dist/
+plugins/*/vendor/
+
+# Ignore other sensitive or unnecessary files
+.env
+.env.*
+.idea/
+.vscode/

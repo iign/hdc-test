@@ -1,0 +1,18 @@
+.splide__pagination {
+  gap: 8px;
+  transform: translateY(-90px);
+  position: relative;
+  z-index: 10;
+}
+
+.splide__pagination__page {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='25.361' height='18.93' viewBox='0 0 25.361 18.93'%3E%3Cpath id='Path_44037' data-name='Path 44037' d='M864.62,0l4.732,12.68,4.733,12.681,4.732-12.681L883.55,0Z' transform='translate(0 883.551) rotate(-90)' fill='%2300acc8'/%3E%3C/svg%3E%0A");
+  width: 15px;
+  height: 9px;
+  background-size: contain;
+  background-repeat: no-repeat;
+
+  &.is-active {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='25.361' height='18.93' viewBox='0 0 25.361 18.93'%3E%3Cpath id='Path_44037' data-name='Path 44037' d='M864.62,0l4.732,12.68,4.733,12.681,4.732-12.681L883.55,0Z' transform='translate(0 883.551) rotate(-90)' fill='%23C9E500'/%3E%3C/svg%3E%0A");
+  }
+}
