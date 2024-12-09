@@ -3809,10 +3809,11 @@ var Hero = function Hero() {
   var heroSplide = new _splidejs_splide__WEBPACK_IMPORTED_MODULE_0__["default"]("#hero-splide", {
     type: "fade",
     autoplay: true,
-    interval: 2000,
+    interval: 3000,
     cover: true,
     arrows: false,
-    pagination: true
+    pagination: true,
+    rewind: true
   });
   heroSplide.mount();
 };

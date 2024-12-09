@@ -6,10 +6,11 @@ const Hero = () => {
   const heroSplide = new Splide("#hero-splide", {
     type: "fade",
     autoplay: true,
-    interval: 2000,
+    interval: 3000,
     cover: true,
     arrows: false,
     pagination: true,
+    rewind: true,
   });
 
   heroSplide.mount();
