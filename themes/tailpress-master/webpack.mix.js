@@ -17,8 +17,18 @@ mix.webpackConfig({
 
 mix.js("resources/js/app.js", "js");
 
-mix.postCss("resources/css/app.css", "css");
+mix
+  .js(
+    "/resources/blocks/main-feature/block.js",
+    "/blocks/main-feature/block.build.js"
+  )
+  .react();
+mix.postCss(
+  "resources/blocks/main-feature/style.css",
+  "/blocks/main-feature/style.css"
+);
 
+mix.postCss("resources/css/app.css", "css");
 mix.postCss("resources/css/editor-style.css", "css");
 
 mix.browserSync({

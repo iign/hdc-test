@@ -171,3 +171,34 @@ add_action('acf/init', function () {
     ));
   }
 });
+
+add_action('init', function () {
+  $theme = wp_get_theme();
+
+  wp_register_script(
+    'theme-main-feature',
+    get_template_directory_uri() . '/blocks/main-feature/block.build.js',
+    ['wp-blocks', 'wp-editor', 'wp-components', 'wp-element'],
+    $theme->get('Version')
+  );
+
+  wp_register_style(
+    'theme-main-feature-editor',
+    get_template_directory_uri() . '/blocks/main-feature/editor.css',
+    [],
+    $theme->get('Version')
+  );
+
+  wp_register_style(
+    'theme-main-feature-style',
+    get_template_directory_uri() . '/blocks/main-feature/style.css',
+    [],
+    $theme->get('Version')
+  );
+
+  register_block_type('theme/main-feature', [
+    'editor_script' => 'theme-main-feature',
+    'editor_style' => 'theme-main-feature-editor',
+    'style' => 'theme-main-feature-style',
+  ]);
+});
