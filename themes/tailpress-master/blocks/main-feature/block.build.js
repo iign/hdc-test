@@ -4686,6 +4686,36 @@ registerBlockType("theme/main-feature", {
           }
         }
       }
+    },
+    logosHeading: {
+      type: "string",
+      "default": "Logo strip heading"
+    },
+    logosButtonText: {
+      type: "string",
+      "default": "View All"
+    },
+    logosButtonLink: {
+      type: "string",
+      "default": "#"
+    },
+    logos: {
+      type: "array",
+      "default": [],
+      items: {
+        type: "object",
+        properties: {
+          id: {
+            type: "number"
+          },
+          url: {
+            type: "string"
+          },
+          alt: {
+            type: "string"
+          }
+        }
+      }
     }
   },
   edit: function edit(_ref) {
@@ -4696,7 +4726,11 @@ registerBlockType("theme/main-feature", {
       text = attributes.text,
       buttonText = attributes.buttonText,
       buttonLink = attributes.buttonLink,
-      images = attributes.images;
+      images = attributes.images,
+      logosHeading = attributes.logosHeading,
+      logosButtonText = attributes.logosButtonText,
+      logosButtonLink = attributes.logosButtonLink,
+      logos = attributes.logos;
     var updateImage = function updateImage(image, index) {
       var updatedImages = _toConsumableArray(images);
       updatedImages[index] = {
@@ -4714,6 +4748,25 @@ registerBlockType("theme/main-feature", {
       });
       setAttributes({
         images: updatedImages
+      });
+    };
+    var updateLogo = function updateLogo(logo, index) {
+      var updatedLogos = _toConsumableArray(logos);
+      updatedLogos[index] = {
+        id: logo.id,
+        url: logo.url,
+        alt: logo.alt
+      };
+      setAttributes({
+        logos: updatedLogos
+      });
+    };
+    var removeLogo = function removeLogo(index) {
+      var updatedLogos = logos.filter(function (_, i) {
+        return i !== index;
+      });
+      setAttributes({
+        logos: updatedLogos
       });
     };
     return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
@@ -4741,7 +4794,8 @@ registerBlockType("theme/main-feature", {
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
         className: "main-feature-block",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(RichText, {
-          tagName: "h2",
+          tagName: "h3",
+          className: "font-serif",
           value: heading,
           onChange: function onChange(value) {
             return setAttributes({
@@ -4802,26 +4856,87 @@ registerBlockType("theme/main-feature", {
           className: "hdc-btn",
           href: buttonLink,
           children: buttonText
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(RichText, {
+          tagName: "h2",
+          value: logosHeading,
+          className: "font-serif",
+          onChange: function onChange(value) {
+            return setAttributes({
+              logosHeading: value
+            });
+          },
+          placeholder: __("Add a heading", "theme")
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+          className: "logos-section grid grid-cols-3 gap-2",
+          children: [logos.map(function (logo, index) {
+            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+              className: "image-upload",
+              children: [logo.url ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
+                src: logo.url,
+                alt: logo.alt,
+                className: "preview-image"
+              }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(MediaUpload, {
+                onSelect: function onSelect(image) {
+                  return updateLogo({
+                    id: image.id,
+                    url: image.url,
+                    alt: image.alt
+                  }, index);
+                },
+                allowedTypes: ["image", "svg"],
+                render: function render(_ref3) {
+                  var open = _ref3.open;
+                  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(Button, {
+                    onClick: open,
+                    variant: "primary",
+                    children: __("Upload Logo", "theme")
+                  });
+                }
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(Button, {
+                onClick: function onClick() {
+                  return removeLogo(index);
+                },
+                variant: "secondary",
+                children: __("Remove", "theme")
+              })]
+            }, index);
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(Button, {
+            onClick: function onClick() {
+              return setAttributes({
+                logos: [].concat(_toConsumableArray(logos), [{
+                  id: null,
+                  url: "",
+                  alt: ""
+                }])
+              });
+            },
+            variant: "primary",
+            children: __("Add Logo", "theme")
+          })]
         })]
       })]
     });
   },
-  save: function save(_ref3) {
-    var attributes = _ref3.attributes;
+  save: function save(_ref4) {
+    var attributes = _ref4.attributes;
     var heading = attributes.heading,
       subheading = attributes.subheading,
       text = attributes.text,
       buttonText = attributes.buttonText,
       buttonLink = attributes.buttonLink,
-      images = attributes.images;
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("section", {
+      images = attributes.images,
+      logosHeading = attributes.logosHeading,
+      logosButtonText = attributes.logosButtonText,
+      logosButtonLink = attributes.logosButtonLink,
+      logos = attributes.logos;
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("section", {
       className: "py-14 bg-neutral-200",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
         className: "container mx-auto",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
           className: "main-feature",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-            className: "div-1",
+            className: "main-feature__heading",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h2", {
               className: "font-serif text-4xl lg:text-6xl",
               dangerouslySetInnerHTML: {
@@ -4829,25 +4944,25 @@ registerBlockType("theme/main-feature", {
               }
             })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-            className: "div-2 main-img",
+            className: "main-feature__main-img",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
               src: images[0].url,
               alt: images[0].alt
             }, 1)
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-            className: "hidden lg:block div-3",
+            className: "hidden lg:block main-feature__img-2",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
               src: images[1].url,
               alt: images[1].alt
             }, 2)
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-            className: "hidden lg:block div-5",
+            className: "hidden lg:block main-feature__img-3",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
               src: images[2].url,
               alt: images[2].alt
             }, 3)
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-            className: "div-4",
+            className: "lg:mt-20 lg:ms-10 main-feature__content",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h3", {
               className: "uppercase font-sans font-medium text-neutral-900 mb-8 tracking-[1.88px]",
               children: subheading
@@ -4861,25 +4976,56 @@ registerBlockType("theme/main-feature", {
             })]
           })]
         })
-      })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+        "class": "py-14",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+          className: "container mx-auto",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+            className: "flex items-center justify-between gap-8 flex-wrap",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h2", {
+              className: "font-serif text-4xl lg:text-6xl",
+              children: logosHeading
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("a", {
+              className: "inline-flex items-center gap-4 uppercase text-[15px] font-medium text-neutral-900 group shrink-0",
+              href: logosButtonLink,
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+                className: "leading-none",
+                children: logosButtonText
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("svg", {
+                className: "w-4 h-auto text-blue group-hover:text-lime",
+                xmlns: "http://www.w3.org/2000/svg",
+                width: "25.361",
+                height: "18.93",
+                viewBox: "0 0 25.361 18.93",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("path", {
+                  id: "Path_44037",
+                  "data-name": "Path 44037",
+                  d: "M864.62,0l4.732,12.68,4.733,12.681,4.732-12.681L883.55,0Z",
+                  transform: "translate(0 883.551) rotate(-90)",
+                  fill: "currentColor"
+                })
+              })]
+            })]
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+          className: "overflow-x-auto  pl-[calc((100vw-480px)/2)]  sm:pl-[calc((100vw-600px)/2)]  md:pl-[calc((100vw-782px)/2)] lg:pl-[calc((100vw-1120px)/2)]  mt-9 lg:mt-16 scrollbar-hidden pb-4",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+            className: "flex gap-5 lg:gap-10 px-4 lg:px-0 items-center",
+            children: logos.map(function (image, index) {
+              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                className: "shrink-0 max-w-32 lg:max-w-60",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
+                  src: image.url,
+                  alt: image.alt
+                }, index)
+              });
+            })
+          })
+        })]
+      })]
     });
   }
 });
-{
-  /* <div className="main-feature-block">
-        <h2>{heading}</h2>
-        <div className="images-section">
-          {images.map((image, index) => (
-            <img key={index} src={image.url} alt={image.alt} />
-          ))}
-        </div>
-        <h3>{subheading}</h3>
-        <p>{text}</p>
-        <a className="button-link" href={buttonLink}>
-          {buttonText}
-        </a>
-      </div> */
-}
 })();
 
 /******/ })()
