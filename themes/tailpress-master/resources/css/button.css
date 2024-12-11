@@ -1,0 +1,29 @@
+.hdc-btn {
+  text-transform: uppercase;
+  border: 2px solid theme(colors.blue);
+  padding: 10px 25px;
+  font-size: 0.9375rem;
+  color: theme(colors.neutral-900);
+  font-weight: bold;
+  letter-spacing: 1.88px;
+  transition: 100ms ease;
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  text-decoration: none;
+
+  &:hover {
+    color: theme(colors.neutral-900);
+    background-color: theme(colors.blue);
+    border-color: theme(colors.blue);
+  }
+
+  &:focus-visible {
+    outline: 2px solid theme(colors.blue);
+    outline-offset: 2px;
+  }
+
+  &:active {
+    filter: brightness(90%);
+  }
+}
