@@ -2,8 +2,7 @@
   "version": 1,
   "settings": {
     "layout": {
-      "contentSize": "1120px",
-      "wideSize": "1440px"
+      "contentSize": "1120px"
     },
     "color": {
       "palette": [
@@ -63,12 +62,12 @@
         {
           "slug": "4xl",
           "name": "XL",
-          "size": ["2.25rem", "1.4"]
+          "size": ["2.375rem", "1.4"]
         },
         {
           "slug": "6xl",
           "name": "XL",
-          "size": ["3.75rem", "1.5"]
+          "size": ["3.75rem", "1.4"]
         }
       ]
     }
