@@ -2,7 +2,6 @@ import Splide from "@splidejs/splide";
 import "@splidejs/splide/css/core";
 
 const Hero = () => {
-  console.log("run hero");
   const heroSplide = new Splide("#hero-splide", {
     type: "fade",
     autoplay: true,
