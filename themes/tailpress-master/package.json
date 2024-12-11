@@ -19,7 +19,9 @@
 		"production": "mix --production"
 	},
 	"devDependencies": {
+		"@babel/preset-react": "^7.26.3",
 		"@jeffreyvr/tailwindcss-tailpress": "^2.0.0",
+		"@wordpress/babel-preset-default": "^8.13.0",
 		"autoprefixer": "^10.4.0",
 		"browser-sync": "^2.26.14",
 		"browser-sync-webpack-plugin": "^2.3.0",
