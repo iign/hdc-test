@@ -1,20 +1,16 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+@import "button.css";
 
 body {
   @apply font-sans;
 }
 
 .wp-block {
-  @apply max-w-screen-xl;
-}
-
-.wp-block[data-align="wide"] {
-  @apply max-w-screen-xl;
 }
 
 .wp-block[data-align="full"] {
-  @apply max-w-full;
+  max-width: 100%;
 }
 
 #hero-splide {
