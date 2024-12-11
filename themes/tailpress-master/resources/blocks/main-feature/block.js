@@ -289,10 +289,10 @@ registerBlockType("theme/main-feature", {
             mt-9 lg:mt-16
             scrollbar-hidden pb-4"
           >
-            <div className="flex gap-5 lg:gap-10 px-4 lg:px-0 items-center">
+            <div className="flex gap-5 lg:gap-10 px-4 lg:px-0">
               {logos.map((image, index) => (
-                <div className="shrink-0 max-w-32 lg:max-w-60">
-                  <img key={index} src={image.url} alt={image.alt} />
+                <div key={index} className="shrink-0 max-w-32 lg:max-w-60">
+                  <img src={image.url} alt={image.alt} />
                 </div>
               ))}
             </div>

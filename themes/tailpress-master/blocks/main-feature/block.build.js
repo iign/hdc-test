@@ -5010,15 +5010,15 @@ registerBlockType("theme/main-feature", {
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
           className: "overflow-x-auto  pl-[calc((100vw-480px)/2)]  sm:pl-[calc((100vw-600px)/2)]  md:pl-[calc((100vw-782px)/2)] lg:pl-[calc((100vw-1120px)/2)]  mt-9 lg:mt-16 scrollbar-hidden pb-4",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-            className: "flex gap-5 lg:gap-10 px-4 lg:px-0 items-center",
+            className: "flex gap-5 lg:gap-10 px-4 lg:px-0",
             children: logos.map(function (image, index) {
               return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
                 className: "shrink-0 max-w-32 lg:max-w-60",
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
                   src: image.url,
                   alt: image.alt
-                }, index)
-              });
+                })
+              }, index);
             })
           })
         })]
