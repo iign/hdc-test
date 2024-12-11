@@ -202,3 +202,13 @@ add_action('init', function () {
     'style' => 'theme-main-feature-style',
   ]);
 });
+
+
+// Add SVG support
+// Use Safe SVG plugin in production
+function enable_svg_uploads($mime_types)
+{
+  $mime_types['svg'] = 'image/svg+xml';
+  return $mime_types;
+}
+add_filter('upload_mimes', 'enable_svg_uploads');
