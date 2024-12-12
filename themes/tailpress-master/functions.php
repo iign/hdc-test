@@ -172,6 +172,95 @@ add_action('acf/init', function () {
   }
 });
 
+// Register a Two column slash block that has a heading, a paragraph and a button and an image:
+add_action('acf/init', function () {
+  // Register the Two Column Slash Block
+  if (function_exists('acf_register_block_type')) {
+    acf_register_block_type(array(
+      'name'              => 'two-col-slash',
+      'title'             => __('Two Column Slash'),
+      'description'       => __('A custom two column slash block.'),
+      'render_template'   => 'template-parts/blocks/two-col-slash.php',
+      'category'          => 'formatting',
+      'icon'              => 'cover-image',
+      'keywords'          => array('two column', 'slash', 'text'),
+      'supports'          => array(
+        'align' => false,
+      ),
+    ));
+  }
+});
+
+
+add_action('acf/init', function () {
+  if (function_exists('acf_add_local_field_group')) {
+    acf_add_local_field_group(array(
+      'key' => 'group_two_col_slash_block',
+      'title' => 'Two Column Slash Block Fields',
+      'fields' => array(
+        array(
+          'key' => 'field_two_col_slash_headline',
+          'label' => 'Headline',
+          'name' => 'headline',
+          'type' => 'wysiwyg',
+          'media_upload' => 0,
+          'toolbar' => 'basic',
+          'instructions' => 'Enter the headline text.',
+          'required' => 1,
+        ),
+        array(
+          'key' => 'field_two_col_slash_paragraph',
+          'label' => 'Paragraph',
+          'name' => 'content',
+          'type' => 'wysiwyg',
+          'media_upload' => 0,
+          'toolbar' => 'basic',
+          'rows' => 4,
+          'instructions' => 'Enter the paragraph text.',
+        ),
+        array(
+          'key' => 'field_two_col_slash_button',
+          'label' => 'Button',
+          'name' => 'button',
+          'type' => 'link',
+          'instructions' => 'Enter the button text and link.',
+        ),
+        array(
+          'key' => 'field_two_col_slash_image',
+          'label' => 'Image',
+          'name' => 'image',
+          'type' => 'image',
+          'instructions' => 'Upload the image for the two column slash block.',
+          'required' => 1,
+          'return_format' => 'id',
+          'preview_size' => 'medium',
+          'library' => 'all',
+        ),
+        // add a toggle option for a variation backgound color #FAFAFA
+        array(
+          'key' => 'field_two_col_slash_bright_background',
+          'label' => 'Bright background?',
+          'name' => 'bright_background',
+          'type' => 'true_false',
+          'default_value' => 0,
+        ),
+
+      ),
+      'location' => array(
+        array(
+          array(
+            'param' => 'block',
+            'operator' => '==',
+            'value' => 'acf/two-col-slash',
+          ),
+        ),
+      ),
+    ));
+  }
+});
+
+
+
 add_action('init', function () {
   $theme = wp_get_theme();
 

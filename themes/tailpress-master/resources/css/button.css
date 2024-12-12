@@ -12,6 +12,10 @@
   align-items: center;
   text-decoration: none;
 
+  &--white {
+    color: theme(colors.white);
+  }
+
   &:hover {
     color: theme(colors.neutral-900);
     background-color: theme(colors.blue);

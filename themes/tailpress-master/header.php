@@ -21,7 +21,7 @@
 
     <?php do_action('tailpress_header'); ?>
 
-    <header class="bg-neutral-900 max-h-screen flex flex-col top-0 w-full fixed lg:relative z-20">
+    <header class="bg-neutral-900 max-h-screen flex flex-col top-0 w-full fixed lg:relative z-50">
       <button href="#" aria-label="Toggle navigation" id="primary-menu-toggle" aria-controls="primary-menu"
         aria-expanded="false"
         class="text-white py-5 mx-auto text-center flex items-center justify-center cursor-pointer w-full lg:hidden">
