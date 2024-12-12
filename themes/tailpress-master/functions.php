@@ -172,9 +172,7 @@ add_action('acf/init', function () {
   }
 });
 
-// Register a Two column slash block that has a heading, a paragraph and a button and an image:
 add_action('acf/init', function () {
-  // Register the Two Column Slash Block
   if (function_exists('acf_register_block_type')) {
     acf_register_block_type(array(
       'name'              => 'two-col-slash',
@@ -236,7 +234,6 @@ add_action('acf/init', function () {
           'preview_size' => 'medium',
           'library' => 'all',
         ),
-        // add a toggle option for a variation backgound color #FAFAFA
         array(
           'key' => 'field_two_col_slash_bright_background',
           'label' => 'Bright background?',
@@ -258,8 +255,6 @@ add_action('acf/init', function () {
     ));
   }
 });
-
-
 
 add_action('init', function () {
   $theme = wp_get_theme();
@@ -292,6 +287,64 @@ add_action('init', function () {
   ]);
 });
 
+
+add_action('acf/init', function () {
+  if (function_exists('acf_register_block_type')) {
+    acf_register_block_type(array(
+      'name'              => 'two-col',
+      'title'             => __('Two Column'),
+      'description'       => __('A custom two column block.'),
+      'render_template'   => 'template-parts/blocks/two-col.php',
+      'category'          => 'formatting',
+      'icon'              => 'cover-image',
+      'keywords'          => array('two column', 'text'),
+      'supports'          => array(
+        'align' => false,
+      ),
+    ));
+  }
+});
+
+add_action('acf/init', function () {
+  if (function_exists('acf_add_local_field_group')) {
+    acf_add_local_field_group(array(
+      'key' => 'group_two_col_block',
+      'title' => 'Two Column Block Fields',
+      'fields' => array(
+        array(
+          'key' => 'field_two_col_heading',
+          'label' => 'Heading',
+          'name' => 'heading',
+          'type' => 'text',
+          'media_upload' => 0,
+          'toolbar' => 'basic',
+          'instructions' => 'Enter the heading text.',
+          'required' => 1,
+        ),
+        array(
+          'key' => 'field_two_col_paragraph',
+          'label' => 'Paragraph',
+          'name' => 'content',
+          'type' => 'wysiwyg',
+          'media_upload' => 0,
+          'toolbar' => 'basic',
+          'rows' => 4,
+          'instructions' => 'Enter the content.',
+          'required' => 1,
+        ),
+      ),
+      'location' => array(
+        array(
+          array(
+            'param' => 'block',
+            'operator' => '==',
+            'value' => 'acf/two-col',
+          ),
+        ),
+      ),
+    ));
+  }
+});
 
 // Add SVG support
 // Use Safe SVG plugin in production
