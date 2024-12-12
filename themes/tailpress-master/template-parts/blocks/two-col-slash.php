@@ -46,7 +46,7 @@ $class_name = implode(' ', $class_name);
 
 ?>
 
-<section <?php echo esc_attr($anchor); ?>class="<?php echo esc_attr($class_name); ?>" data-color="<?php echo $bright ? 'bright' : 'dark' ?>">
+<section <?php echo esc_attr($anchor); ?> class="<?php echo esc_attr($class_name); ?>" data-color="<?php echo $bright ? 'bright' : 'dark' ?>">
   <div class="grid-cols-2 absolute inset-0 w-full h-full hidden lg:grid">
     <div class="relative col-start-2">
       <div class="two-col-slash__tilt <?php echo $bright ? 'bg-neutral-100' : 'bg-neutral-900' ?>"></div>
