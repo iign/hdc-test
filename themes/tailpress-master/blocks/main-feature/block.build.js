@@ -4944,25 +4944,25 @@ registerBlockType("theme/main-feature", {
               }
             })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-            className: "main-feature__main-img",
+            className: "main-feature__main-img opacity-0",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
               src: images[0].url,
               alt: images[0].alt
             }, 1)
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-            className: "hidden lg:block main-feature__img-2",
+            className: "hidden lg:block lg:opacity-0 main-feature__img-2",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
               src: images[1].url,
               alt: images[1].alt
             }, 2)
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-            className: "hidden lg:block main-feature__img-3",
+            className: "hidden lg:block lg:opacity-0 main-feature__img-3",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
               src: images[2].url,
               alt: images[2].alt
             }, 3)
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-            className: "lg:mt-20 lg:ms-10 main-feature__content",
+            className: "lg:mt-20 lg:ms-10 main-feature__content opacity-0",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h3", {
               className: "uppercase font-sans font-medium text-neutral-900 mb-8 tracking-[1.88px]",
               children: subheading
