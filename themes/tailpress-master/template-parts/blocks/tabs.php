@@ -7,26 +7,24 @@
  */
 
 $tabs = get_field('tabs');
-$firstTabClasses = "relative cursor-pointer lg:bg-neutral-500 lg:text-neutral-100 -skew-x-12 px-8 py-6 origin-bottom-left duration-200
-              aria-selected:text-neutral-100 aria-selected:bg-neutral-500
-              lg:hover:scale-y-105
-              lg:aria-selected:scale-y-105 lg:aria-selected:bg-neutral-100 lg:aria-selected:text-neutral-950 lg:aria-selected:border-r-0
-              border-r border-neutral-500 lg:border-r-0
-              lg:max-w-[12.5%]
-              aria-selected:before:bg-neutral-500 before:duration-200
-              before:content-[''] before:absolute before:h-full before:w-screen before:-left-[calc(100vw-1px)] lg:before:bg-neutral-500 before:inset-0
-              lg:before:aria-selected:bg-neutral-100
-              border-b border-b-neutral-500 lg:border-b-0";
+$baseTabClasses = "cursor-pointer lg:bg-neutral-500 lg:text-neutral-100 -skew-x-12 px-8 py-6 origin-bottom-left duration-200
+                   aria-selected:text-neutral-100 aria-selected:bg-neutral-500
+                   lg:hover:scale-y-105
+                   lg:aria-selected:scale-y-105 lg:aria-selected:bg-neutral-100 lg:aria-selected:text-neutral-950
+                   lg:max-w-[12.5%]
+                   border-r border-neutral-500 border-b border-b-neutral-500 lg:border-r-neutral-100";
 
-$tabClasses = "cursor-pointer lg:bg-neutral-500 lg:text-neutral-100 -skew-x-12 px-8 py-6 origin-bottom-left duration-200
-              aria-selected:text-neutral-100 aria-selected:bg-neutral-500
-              lg:hover:scale-y-105
-              lg:aria-selected:scale-y-105 lg:aria-selected:bg-neutral-100 lg:aria-selected:text-neutral-950
-              lg:max-w-[12.5%] lg-border-r-0 border-r border-neutral-500 lg:border-r-0 
-              border-b border-b-neutral-500 lg:border-b-0";
+$firstTabClasses = "relative 
+                    lg:aria-selected:border-r-0
+                    lg:border-r-2 
+                    aria-selected:before:bg-neutral-500 before:duration-200
+                    before:content-[''] before:absolute before:h-full before:w-screen before:-left-[calc(100vw-1px)] lg:before:bg-neutral-500 before:inset-0
+                    lg:before:aria-selected:bg-neutral-100
+                    lg:border-b-0";
+
+$tabClasses = "lg:aria-selected:border-b-transparent lg-border-r-0  lg:border-r-0 lg:border-r-2";
 
 ?>
-
 
 <section class="block-tabs">
   <div class="tabs">
@@ -35,7 +33,7 @@ $tabClasses = "cursor-pointer lg:bg-neutral-500 lg:text-neutral-100 -skew-x-12 p
       role="tablist">
       <?php foreach ($tabs as $index => $tab): ?>
         <button
-          class="<?php echo $index === 0 ? $firstTabClasses : $tabClasses ?>"
+          class="<?php echo $baseTabClasses ?> <?php echo $index === 0 ? $firstTabClasses : $tabClasses ?>"
           id="tab-<?php echo $index ?>"
           type="button"
           role="tab"
