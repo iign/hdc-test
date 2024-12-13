@@ -346,6 +346,95 @@ add_action('acf/init', function () {
   }
 });
 
+/**
+ * Tabs block
+ */
+
+add_action('acf/init', function () {
+  if (function_exists('acf_register_block_type')) {
+    acf_register_block_type(array(
+      'name'              => 'tabs',
+      'title'             => __('Tabs'),
+      'description'       => __('A custom tabs block.'),
+      'render_template'   => 'template-parts/blocks/tabs.php',
+      'category'          => 'formatting',
+      'icon'              => 'cover-image',
+      'keywords'          => array('tabs', 'content'),
+      'supports'          => array(
+        'align' => false,
+      ),
+    ));
+  }
+});
+
+add_action('acf/init', function () {
+  if (function_exists('acf_add_local_field_group')) {
+    acf_add_local_field_group(array(
+      'key' => 'group_tabs_block',
+      'title' => 'Tabs Block Fields',
+      'fields' => array(
+        array(
+          'key' => 'field_tabs',
+          'label' => 'Tabs',
+          'name' => 'tabs',
+          'type' => 'repeater',
+          'instructions' => 'Add tabs.',
+          'min' => 1,
+          'max' => 8,
+          'required' => 1,
+          'layout' => 'block',
+          'button_label' => 'Add Tab',
+          'sub_fields' => array(
+            array(
+              'key' => 'field_tabs_heading',
+              'label' => 'Heading',
+              'name' => 'heading',
+              'type' => 'text',
+              'instructions' => 'Enter the tab heading.',
+              'required' => 1,
+            ),
+            array(
+              'key' => 'field_tabs_content',
+              'label' => 'Content',
+              'name' => 'content',
+              'type' => 'wysiwyg',
+              'instructions' => 'Enter the tab content.',
+              'required' => 1,
+            ),
+            array(
+              'key' => 'field_tabs_image',
+              'label' => 'Image',
+              'name' => 'image',
+              'type' => 'image',
+              'instructions' => 'Upload the image for the tab.',
+              'required' => 1,
+              'return_format' => 'id',
+              'preview_size' => 'medium',
+              'library' => 'all',
+            ),
+            array(
+              'key' => 'field_tabs_cta',
+              'label' => 'Call to Action',
+              'name' => 'cta',
+              'type' => 'link',
+              'instructions' => 'Enter the call to action text and link.',
+            ),
+          ),
+        ),
+      ),
+      'location' => array(
+        array(
+          array(
+            'param' => 'block',
+            'operator' => '==',
+            'value' => 'acf/tabs',
+          ),
+        ),
+      ),
+    ));
+  }
+});
+
 // Add SVG support
 // Use Safe SVG plugin in production
 function enable_svg_uploads($mime_types)
