@@ -1,4 +1,5 @@
 import Hero from "./hero-block";
+import Tabs from "./tabs";
 
 const initMobileMenu = () => {
   let main_navigation = document.querySelector("#mobile-menu");
@@ -13,7 +14,15 @@ const initMobileMenu = () => {
     });
 };
 
+const initTabs = () => {
+  var tablists = document.querySelectorAll(".tabs [role=tablist]");
+  for (var i = 0; i < tablists.length; i++) {
+    new Tabs(tablists[i]);
+  }
+};
+
 document.addEventListener("DOMContentLoaded", function () {
   initMobileMenu();
   Hero();
+  initTabs();
 });
