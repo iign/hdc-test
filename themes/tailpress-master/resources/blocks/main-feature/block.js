@@ -227,17 +227,17 @@ registerBlockType("theme/main-feature", {
               ></h2>
             </div>
 
-            <div className="main-feature__main-img">
+            <div className="main-feature__main-img opacity-0">
               <img key={1} src={images[0].url} alt={images[0].alt} />
             </div>
-            <div className="hidden lg:block main-feature__img-2">
+            <div className="hidden lg:block lg:opacity-0 main-feature__img-2">
               <img key={2} src={images[1].url} alt={images[1].alt} />
             </div>
-            <div className="hidden lg:block main-feature__img-3">
+            <div className="hidden lg:block lg:opacity-0 main-feature__img-3">
               <img key={3} src={images[2].url} alt={images[2].alt} />
             </div>
 
-            <div className="lg:mt-20 lg:ms-10 main-feature__content">
+            <div className="lg:mt-20 lg:ms-10 main-feature__content opacity-0">
               <h3 className="uppercase font-sans font-medium text-neutral-900 mb-8 tracking-[1.88px]">
                 {subheading}
               </h3>

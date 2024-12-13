@@ -1,5 +1,6 @@
 import Hero from "./hero-block";
 import Tabs from "./tabs";
+import runAnimations from "./animations";
 
 const initMobileMenu = () => {
   let main_navigation = document.querySelector("#mobile-menu");
@@ -25,4 +26,5 @@ document.addEventListener("DOMContentLoaded", function () {
   initMobileMenu();
   Hero();
   initTabs();
+  runAnimations();
 });
