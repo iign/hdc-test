@@ -1,6 +1,5 @@
 debug.log
-uploads/
-!uploads/.gitkeep
+
 
 # Ignore temporary or backup files
 *.tmp
